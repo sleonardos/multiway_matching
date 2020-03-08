@@ -12,7 +12,7 @@ from plots import Plots
 if __name__ == '__main__':
     
     # pick a dataset
-    dataset = SyntheticDataSet(nImg=20, K=10, p=0.2)
+    dataset = SyntheticDataSet(nImg=50, K=10, p=0.4)
     Xin, Xgt, dimGroup = dataset.getData()
 
     # define the manifold

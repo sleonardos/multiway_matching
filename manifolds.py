@@ -43,12 +43,16 @@ class MultinomialManifold():
         U = np.random.randn(self.N, self.K)
         U = self.projection(X, U)
         return U/self.norm(X, U)
-    
-    def retraction(self, X, U):
 
-        #X = np.maximum(eps, X)
-        Y = X*np.exp(U/X)
-        Y = Y/Y.sum(axis=1, keepdims = True)
+    def exp_normalize(self, X):
+        
+        Y = np.exp(X - np.amax(X, axis=1,keepdims=True) )
+        return Y / Y.sum(axis=1, keepdims = True)
+        
+    def retraction(self, X, U):
+        
+        Z = np.log(np.maximum(X,eps)) +  U/X
+        Y = self.exp_normalize(Z)
         return np.maximum(eps, Y)
 
     
