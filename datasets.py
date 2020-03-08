@@ -77,8 +77,8 @@ class WillowDataSet():
         data_dict = loadmat(self.filename)
 
         # extract matrices from dictionary
-        Xin = csr_matrix(data_dict['X_in'].toarray())
-        Xgt = csr_matrix(data_dict['X_gt'].toarray())
+        Xin = csr_matrix(data_dict['X_in'])
+        Xgt = csr_matrix(data_dict['X_gt'])
         dimGroup = data_dict['dimGroup'][:,0]
         
         return Xin, Xgt, dimGroup
