@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 
 class Plots():
 
+    # class that implements plots regarding the optimization method
+    # given the info stored during optimization
+    # cache.shape = (nIter, 2)
+    
     def __init__(self, cache):
 
         self.cache = cache

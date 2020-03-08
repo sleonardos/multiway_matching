@@ -8,6 +8,7 @@ with Applications in Multi-Sensory Data Association", IEEE International Confere
 ## Prerequisites
 * numpy
 * matplotlib
+* scipy
 
 ## Run
 Open a terminal and run:
