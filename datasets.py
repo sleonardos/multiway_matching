@@ -8,9 +8,9 @@ class SyntheticDataSet():
 
     # class to generate synthetic dataset
     # To generate a synthetic dataset we need the following:
-    # nImg: number of images
-    # K: size of universe or equivalently rank of matrix
-    # p: percentage of false correspondences/outliers
+    # -nImg: number of images
+    # -K: size of universe or equivalently rank of matrix
+    # -p: percentage of false correspondences/outliers
     
     def __init__(self, nImg=10, K=10, p=0.2):
 
