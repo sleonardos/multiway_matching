@@ -11,7 +11,7 @@ with Applications in Multi-Sensory Data Association", IEEE International Confere
 * scipy
 
 ## Run
-Open a terminal and run:
+Open a terminal, and run:
 ```bash
 python3 test.py
 ```
