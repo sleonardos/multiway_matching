@@ -9,7 +9,6 @@ class MultinomialManifold():
     # optimization on the manifold of NxK stochastic matrices
     # based on the Riemannian manifold structure when endowed with
     # the Fisher information metric
-    
     def __init__(self,N,K):
         
         # embedding space NxK
@@ -99,4 +98,3 @@ if __name__ == '__main__':
     
     print(X)
     print(U)
-    

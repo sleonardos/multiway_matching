@@ -4,7 +4,6 @@ from numpy.linalg import norm
 class Problem():
 
     # class that implements the cost function and its Euclidean gradient
-
     def __init__(self, Xin, dimGroup, lam = 1):
 
         # noisy input matrix
@@ -19,7 +18,6 @@ class Problem():
         # regularization parameter
         self.lam = lam
 
-        
     def cost(self, X):
 
         # compute objective given point X
@@ -34,7 +32,6 @@ class Problem():
             cost = cost + self.lam*norm( np.eye(Xi.shape[0])-np.dot(Xi,Xi.T) , 'fro')**2
         
         return .25*cost
-
 
     def egrad(self, X):
 

@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from manifolds import MultinomialManifold
 
-
 class GradientDescent():
 
     # class that implements gradient descent with constant stepsize
@@ -21,7 +20,6 @@ class GradientDescent():
         # a parameter for random perturbation to avoid saddle points
         self.pert = pert
 
-        
     def Solve(self, manifold, cost, egrad, X):
 
         # compute Riemannian gradient from Euclidean gradient
@@ -56,8 +54,6 @@ class GradientDescent():
                 break
             
         return cache, X
-
-
 
 class ConjugateGradient():
 
@@ -162,15 +158,9 @@ class ConjugateGradient():
                 break
             
         return cache, X
-
-
-
-
-
             
 if __name__ == '__main__':
     
-
     # sample testcase with a simple objective f(X) = (1/4)||I-X*X.T||_F^2
     def cost(X):
         XtX = np.dot(X.T,X)
@@ -178,7 +168,6 @@ if __name__ == '__main__':
 
     def egrad(X):
         return (np.dot(X,np.dot(X.T,X)) - X)
-
 
     # define the manifold
     N, K = 10, 20
