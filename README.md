@@ -37,7 +37,7 @@ python3 multiway.py --dataset Willow --solver cg --tol 1e-3
 ```
 * Sample invocation 2:
 ```bash
-python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o 0.3
+python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o 0.3 --no-plots
 ```
 
 ## Results on the Willow motorbikes dataset
