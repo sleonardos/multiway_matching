@@ -1,13 +1,13 @@
 import numpy as np
 import argparse
 
-from manifolds import MultinomialManifold
-from solvers import GradientDescent, ConjugateGradient
-from datasets import SyntheticDataSet, WillowDataSet
-from problems import Problem
-from evals import Eval
-from plots import Plots
-from munkres import Discretization
+from scripts.manifolds import MultinomialManifold
+from scripts.solvers import GradientDescent, ConjugateGradient
+from scripts.datasets import SyntheticDataSet, WillowDataSet
+from scripts.problems import Problem
+from scripts.evals import Eval
+from scripts.plots import Plots
+from scripts.munkres import Discretization
 
 if __name__ == '__main__':
 

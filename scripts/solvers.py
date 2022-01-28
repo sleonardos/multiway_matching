@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from manifolds import MultinomialManifold
+
+from scripts.manifolds import MultinomialManifold
 
 class GradientDescent():
 
