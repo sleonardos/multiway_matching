@@ -3,17 +3,6 @@
 ## Overview
 
 * Implementation of conjugate gradient on the multinomial manifold for multiway matching. 
-* In case you use this code in your research please cite:
-  ```
-  @inproceedings{leonardos2020low,
-    title={A Low-Rank Matrix Approximation Approach to Multiway Matching with Applications in Multi-Sensory Data Association},
-    author={Leonardos, Spyridon and Zhou, Xiaowei and Daniilidis, Kostas},
-    booktitle={2020 IEEE International Conference on Robotics and Automation (ICRA)},
-    pages={8665--8671},
-    year={2020},
-    organization={IEEE}
-  }
-  ```
 
 ## Prerequisites
 * numpy
@@ -49,3 +38,21 @@ python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o
 ```
 
 ## Results on the Willow motorbikes dataset
+
+## Citation
+
+* In case you use this code in your research please cite:
+  ```
+  @inproceedings{leonardos2020low,
+    title={A Low-Rank Matrix Approximation Approach to Multiway Matching with Applications in Multi-Sensory Data Association},
+    author={Leonardos, Spyridon and Zhou, Xiaowei and Daniilidis, Kostas},
+    booktitle={2020 IEEE International Conference on Robotics and Automation (ICRA)},
+    pages={8665--8671},
+    year={2020},
+    organization={IEEE}
+  }
+  ```
+  
+  ## Contact 
+  
+  * Reach out to `spyridon10@gmail.com` for any questions. 
