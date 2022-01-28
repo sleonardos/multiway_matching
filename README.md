@@ -3,6 +3,7 @@
 ## Overview
 
 * Implementation of conjugate gradient on the multinomial manifold for multiway matching. 
+* Support for Willow Motorbike dataset which can be download from [here](https://www.di.ens.fr/willow/research/graphlearning/) 
 
 ## Prerequisites
 * numpy
