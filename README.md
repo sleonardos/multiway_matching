@@ -13,8 +13,8 @@ with Applications in Multi-Sensory Data Association", IEEE International Confere
 ## Command line script
 
 ```
-usage: test.py [-h] [--dataset DATASET] [--solver SOLVER] [--i I] [--lr LR]
-               [--tol TOL] [--n N] [--k K] [--o O]
+usage: multiway.py [-h] [--dataset DATASET] [--solver SOLVER] [--i I]
+                   [--lr LR] [--tol TOL] [--n N] [--k K] [--o O]
 
 optional arguments:
   -h, --help         show this help message and exit
@@ -31,11 +31,11 @@ optional arguments:
 ```
 
 ```bash
-python3 test.py --dataset Willow --solver cg --tol 1e-3 --lr 0.05
+python3 multiway.py --dataset Willow --solver cg --tol 1e-3 --lr 0.05
 ```
 
 ```bash
-python3 test.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o 0.3
+python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o 0.3
 ```
 
 ## Results on the Willow motorbikes dataset
