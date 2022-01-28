@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from manifolds import MultinomialManifold
 
+from scripts.manifolds import MultinomialManifold
 
 class GradientDescent():
 
-    # class that implements gradient descent with constant stepsize
+    """Class that implements gradient descent with constant step-size."""
     
     def __init__(self, learning_rate = 0.1, max_iter = 1000, tol = 1e-4, pert = 1e-6):
 
@@ -21,7 +21,6 @@ class GradientDescent():
         # a parameter for random perturbation to avoid saddle points
         self.pert = pert
 
-        
     def Solve(self, manifold, cost, egrad, X):
 
         # compute Riemannian gradient from Euclidean gradient
@@ -45,23 +44,18 @@ class GradientDescent():
             # compute cost, gradient norm and cache them
             costX, grad_norm  = cost(X), manifold.norm(X,grad)
             cache.append((costX,grad_norm))
-
-            if i==0:
-                print("=================== Gradient Descent =======================")
                 
             if i%10==0:
-                print("Iteration number  %.0f with cost %.4f" % (i,costX))
+                print("Gradient descent: iteration number  %.0f with cost %.4f" % (i,costX))
             
             if grad_norm < self.tol:
                 break
             
         return cache, X
 
-
-
 class ConjugateGradient():
 
-    # class that implements conjugate gradient with line-search
+    """Class that implements conjugate gradient with line-search."""
 
     def __init__(self, max_iter = 1000, tol = 1e-4, pert = 1e-6):
 
@@ -73,7 +67,6 @@ class ConjugateGradient():
 
         # a parameter for random perturbation to avoid saddle points
         self.pert = pert
-
         
     def LineSearch(self, manifold, cost, X, eta, grad):
 
@@ -142,7 +135,8 @@ class ConjugateGradient():
             #beta = manifold.norm(X, grad) / manifold.norm(X_old, grad_old)**2
 
             # Polak-Ribiere beta
-            beta = manifold.metric(X, grad, grad- manifold.transport(X_old, X, grad_old) ) / manifold.norm(X_old, grad_old)**2
+            beta = manifold.metric(X, grad, grad - manifold.transport(X_old, X, grad_old))
+            beta /= manifold.norm(X_old, grad_old)**2
             beta = max(0,beta)
     
             # new direction as linear comb of negative gradient and transported old direction
@@ -151,26 +145,17 @@ class ConjugateGradient():
             # compute cost, gradient norm and cache them
             costX, grad_norm  = cost(X), manifold.norm(X,grad)
             cache.append((costX,grad_norm))
-
-            if i==0:
-                print("=================== Conjugate Gradient =======================")
                 
             if i%10==0:
-                print("Iteration number  %.0f with cost %.4f" % (i, costX))
+                print("Conjugate gradient, iteration number %.0f with cost %.4f" % (i, costX))
             
             if grad_norm < self.tol:
                 break
             
         return cache, X
-
-
-
-
-
             
 if __name__ == '__main__':
     
-
     # sample testcase with a simple objective f(X) = (1/4)||I-X*X.T||_F^2
     def cost(X):
         XtX = np.dot(X.T,X)
@@ -178,7 +163,6 @@ if __name__ == '__main__':
 
     def egrad(X):
         return (np.dot(X,np.dot(X.T,X)) - X)
-
 
     # define the manifold
     N, K = 10, 20

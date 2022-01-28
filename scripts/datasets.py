@@ -2,28 +2,25 @@ import numpy as np
 from scipy.io import loadmat
 from scipy.sparse import csr_matrix
 
-
-
 class SyntheticDataSet():
-
-    # class to generate synthetic dataset
-    # To generate a synthetic dataset we need the following:
-    # -nImg: number of images
-    # -K: size of universe or equivalently rank of matrix
-    # -p: percentage of false correspondences/outliers
+    """Class to generate synthetic dataset. 
     
+    To generate a synthetic dataset we need the following:
+        -nImg: number of images
+        -K: size of universe or equivalently rank of matrix
+        -p: percentage of false correspondences/outliers
+    """
+
     def __init__(self, nImg=10, K=10, p=0.2):
 
         # number of images 
         self.nImg = nImg
         
-        # size of universe, or equivalently
-        # rank of the matrix of pairwise correspondences
+        # size of universe
         self.K = K
 
         # outlier percentage
         self.p = p
-
 
     def getData(self):
 
@@ -51,25 +48,20 @@ class SyntheticDataSet():
 
         return csr_matrix(Xin), Xgt, dimGroup
 
-
-
-
 class WillowDataSet():
 
-    # class to implement data loading for WILLOW object class datasets
+    "Class to implement data loading for WILLOW object class datasets."
     
-    def __init__(self, name = 'Motorbikes', nImg = 40, K=10):
+    def __init__(self, filename='data/WillowMotorbikes.mat', nImg=40, K=10):
 
         # name of files where data are stored
-        self.filename = 'data/Willow' + name + '.mat'
+        self.filename = filename
 
         # number of images
         self.nImg = nImg
 
-        # size of universe, or equivalently
-        # rank of the matrix of pairwise correspondences
+        # size of universe
         self.K = K
-
 
     def getData(self): 
 
@@ -83,11 +75,9 @@ class WillowDataSet():
         
         return Xin, Xgt, dimGroup
 
-
 if __name__ == '__main__':
 
-    #dataset = SyntheticDataSet(nImg=5, K=10, p=0.2)
-    dataset = WillowDataSet()
+    dataset = SyntheticDataSet(nImg=5, K=5, p=0.2)
     Xin, Xgt, dimGroup = dataset.getData()
 
     print(dimGroup)

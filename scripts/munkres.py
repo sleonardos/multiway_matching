@@ -1,13 +1,12 @@
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 
-
 class Discretization():
 
-    # class to implement projection of each stochastic
-    # submatrix of the low-rank factor X to the set of
-    # (partial) permutation matrices
-    
+    """Class to implement projection of each stochastic submatrix
+       of the low-rank factor X to the set of (partial) permutation matrices.
+    """
+
     def __init__(self, X, dimGroup):
 
         # low-rank factor matrix
@@ -38,13 +37,10 @@ class Discretization():
 
             # update indices
             if iImg<self.dimGroup.shape[0]-1:
-                
                 idx1 = idx1 + self.dimGroup[iImg]
                 idx2 = idx1 + self.dimGroup[iImg+1]
 
         return self.X
-
-
 
 if __name__ == '__main__':
 
@@ -55,16 +51,15 @@ if __name__ == '__main__':
                   [0.9, 0.1, 0.0],
                   [0.1, 0.8, 0.1]])
     
-    dimGroup = np.array([2,3])
+    # the discretized X should be equal to
+    Xd = np.array([[1., 0., 0.],
+                   [0., 0., 1.],
+                   [0., 0., 1.],
+                   [1., 0., 0.],
+                   [0., 1., 0.]])
+    
+    dimGroup = np.array([2, 3])
 
-    discretization = Discretization(X, dimGroup)
-    X = discretization.Stochastic2Permutation()
+    X = Discretization(X, dimGroup).Stochastic2Permutation()
 
-    # result should be equal to
-    # [[1. 0. 0.]
-    # [0. 0. 1.]
-    # [0. 0. 1.]
-    # [1. 0. 0.]
-    # [0. 1. 0.]]
-
-    print(X)
+    assert np.all(np.equal(X, Xd))
