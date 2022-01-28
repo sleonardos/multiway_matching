@@ -12,16 +12,15 @@
 
 ## Command line script
 
+* General invocation:
 ```
 usage: multiway.py [-h] [--dataset DATASET] [--solver SOLVER] [--i I]
                    [--lr LR] [--tol TOL] [--n N] [--k K] [--o O]
 
 optional arguments:
   -h, --help         show this help message and exit
-  --dataset DATASET  Dataset option: either 'Willow' or 'synthetic' are
-                     supported
-  --solver SOLVER    Solver option: either 'cgd' for conjugate gradient or
-                     'gd' for gradient descent
+  --dataset DATASET  Dataset option: either 'Willow' or 'synthetic' are supported
+  --solver SOLVER    Solver option: either 'cgd' for conjugate gradient or 'gd' for gradient descent
   --i I              Maximum number of iterations, default to 500
   --lr LR            Learning rate for gradient descent, default to 0.05
   --tol TOL          Convergence parameter, default to 1e-3.
@@ -30,10 +29,11 @@ optional arguments:
   --o O              Outlier rate for creating the synthetic dataset
 ```
 
+* Sample invocation 1:
 ```bash
 python3 multiway.py --dataset Willow --solver cg --tol 1e-3 --lr 0.05
 ```
-
+* Sample invocation 2:
 ```bash
 python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o 0.3
 ```
