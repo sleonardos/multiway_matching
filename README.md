@@ -57,6 +57,7 @@ Initial accuracy: 72.26%
 Accuracy after optimization: 95.16%
 ```
 
+![image info](./fig/cost.png)
 
 ## Citation
 
