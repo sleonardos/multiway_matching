@@ -41,7 +41,7 @@ python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o
 
 ## Results on the Willow motorbikes dataset
 
-* We achieve 95.16% matching accuracy on the Willow Motorbike dataset: 
+* Starting from a random point on the multinomial manifold, we achieve 95.16% matching accuracy on the Willow Motorbike dataset with conjugate gradient which converges after 170 to 180 iterations: 
 ```
 Conjugate gradient, iteration number 0 with cost 3590.8800
 Conjugate gradient, iteration number 10 with cost 1588.7314
@@ -49,7 +49,6 @@ Conjugate gradient, iteration number 20 with cost 1533.7551
 .
 .
 .
-
 Conjugate gradient, iteration number 150 with cost 1512.5750
 Conjugate gradient, iteration number 160 with cost 1512.5744
 Conjugate gradient, iteration number 170 with cost 1512.5736
