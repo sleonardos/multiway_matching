@@ -5,7 +5,14 @@
 * Implementation of conjugate gradient on the multinomial manifold for multiway matching. 
 * In case you use this code in your research please cite:
   ```
-  S. Leonardos, X. Zhou and K. Daniilidis, "A Low-Rank Matrix Approximation Approach to Multiway Matching with Applications in Multi-Sensory Data Association," 2020 IEEE International Conference on Robotics and Automation (ICRA), 2020, pp. 8665-8671.
+  @inproceedings{leonardos2020low,
+    title={A Low-Rank Matrix Approximation Approach to Multiway Matching with Applications in Multi-Sensory Data Association},
+    author={Leonardos, Spyridon and Zhou, Xiaowei and Daniilidis, Kostas},
+    booktitle={2020 IEEE International Conference on Robotics and Automation (ICRA)},
+    pages={8665--8671},
+    year={2020},
+    organization={IEEE}
+  }
   ```
 
 ## Prerequisites
