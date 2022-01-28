@@ -54,6 +54,6 @@ python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o
   }
   ```
   
-  ## Contact 
+## Contact 
   
-  * Reach out to `spyridon10@gmail.com` for any questions. 
+* Feel free to reach out to `spyridon10@gmail.com` with any questions or comments. 
