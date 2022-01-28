@@ -31,7 +31,7 @@ optional arguments:
 
 * Sample invocation 1:
 ```bash
-python3 multiway.py --dataset Willow --solver cg --tol 1e-3 --lr 0.05
+python3 multiway.py --dataset Willow --solver cg --tol 1e-3
 ```
 * Sample invocation 2:
 ```bash
