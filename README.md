@@ -4,7 +4,7 @@
 
 * Implementation of conjugate gradient on the multinomial manifold for multiway matching. 
 * For an intro to the multinomial manifold and its application to multiway matching, please see our corresponindg [ICRA 2020 paper](paper/LeonardosMultiwayICRA2020.pdf).
-* The Willow Motorbike dataset which can be downloaded from [here](https://www.di.ens.fr/willow/research/graphlearning/).  
+* The Willow Motorbike dataset can be downloaded from [here](https://www.di.ens.fr/willow/research/graphlearning/).  
 
 ## Prerequisites
 * numpy
