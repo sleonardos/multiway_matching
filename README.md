@@ -4,7 +4,7 @@
 
 * Implementation of conjugate gradient on the multinomial manifold for multiway matching. 
 * For an intro to the multinomial manifold and its application to multiway matching, please see our corresponindg [ICRA 2020 paper](paper/LeonardosMultiwayICRA2020.pdf).
-* Willow Motorbike dataset which can be downloaded from [here](https://www.di.ens.fr/willow/research/graphlearning/).
+* The Willow Motorbike dataset which can be downloaded from [here](https://www.di.ens.fr/willow/research/graphlearning/).  
 
 ## Prerequisites
 * numpy
@@ -40,6 +40,24 @@ python3 multiway.py --dataset synthetic --solver gd --tol 1e-3 --n 10 --k 20 --o
 ```
 
 ## Results on the Willow motorbikes dataset
+
+* We achieve 95.16% matching accuracy on the Willow Motorbike dataset: 
+```
+Conjugate gradient, iteration number 0 with cost 3590.8800
+Conjugate gradient, iteration number 10 with cost 1588.7314
+Conjugate gradient, iteration number 20 with cost 1533.7551
+.
+.
+.
+
+Conjugate gradient, iteration number 150 with cost 1512.5750
+Conjugate gradient, iteration number 160 with cost 1512.5744
+Conjugate gradient, iteration number 170 with cost 1512.5736
+
+Initial accuracy: 72.26%
+Accuracy after optimization: 95.16%
+```
+
 
 ## Citation
 
