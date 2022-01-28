@@ -11,18 +11,24 @@
 * General invocation:
 ```
 usage: multiway.py [-h] [--dataset DATASET] [--solver SOLVER] [--i I]
-                   [--lr LR] [--tol TOL] [--n N] [--k K] [--o O]
+                   [--lr LR] [--tol TOL] [--n N] [--k K] [--o O] [--plots]
+                   [--no-plots]
 
 optional arguments:
   -h, --help         show this help message and exit
-  --dataset DATASET  Dataset option: either 'Willow' (Motorbikes) or 'synthetic' are supported
-  --solver SOLVER    Solver option: either 'cgd' for conjugate gradient or 'gd' for gradient descent
+  --dataset DATASET  Dataset option: either 'Willow' or 'synthetic' are
+                     supported
+  --solver SOLVER    Solver option: either 'cgd' for conjugate gradient or
+                     'gd' for gradient descent
   --i I              Maximum number of iterations, default to 500
   --lr LR            Learning rate for gradient descent, default to 0.05
   --tol TOL          Convergence parameter, default to 1e-3.
   --n N              Number of images for creating the synthetic dataset
   --k K              Universe size for creating the synthetic dataset
   --o O              Outlier rate for creating the synthetic dataset
+  --plots            Flag to decide whether to plot the minimization objective
+                     over time, default True
+  --no-plots         Use this flag to skip plots
 ```
 
 * Sample invocation 1:
