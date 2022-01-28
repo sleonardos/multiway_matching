@@ -37,6 +37,14 @@ if __name__ == '__main__':
     parser.add_argument("--o", type=float,
             help="Outlier rate for creating the synthetic dataset")
 
+    parser.add_argument('--plots', dest='plots', action='store_true',
+            help="Flag to decide whether to plot the minimization objective over time, default True")
+
+    parser.add_argument('--no-plots', dest='plots', action='store_false',
+            help="Use this flag to skip plots")
+
+    parser.set_defaults(plots=True)
+
     args = parser.parse_args()
     
     if args.dataset == "Willow":
@@ -84,5 +92,6 @@ if __name__ == '__main__':
     evaluation.print_accuracy()
 
     # plot cost over time
-    plots = Plots(cache)
-    plots.plot_cost()
+    if args.plots:
+        plots = Plots(cache)
+        plots.plot_cost()
