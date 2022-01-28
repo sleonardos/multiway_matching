@@ -3,8 +3,9 @@ from numpy.linalg import norm
 
 class Problem():
 
-    # class that implements the cost function and its Euclidean gradient
-    def __init__(self, Xin, dimGroup, lam = 1):
+    """Class that implements the cost function and its Euclidean gradient."""
+
+    def __init__(self, Xin, dimGroup, lam=1):
 
         # noisy input matrix
         self.Xin = Xin
@@ -20,9 +21,9 @@ class Problem():
 
     def cost(self, X):
 
-        # compute objective given point X
+        """Compute objective given point X."""
+
         # first, compute the low-rank factorization penalty
-        #cost = norm(self.Xin-np.dot(X,X.T),'fro')**2
         XTX = np.dot(X.T, X)
         cost = self.Xin.sum() + norm(XTX, 'fro')**2 -2*np.trace(np.dot(X.T, self.Xin.dot(X))) 
         
@@ -35,14 +36,15 @@ class Problem():
 
     def egrad(self, X):
 
-        # compute Euclidean gradient of objective given point X
+        """Compute Euclidean gradient of objective given point X."""
+        
         # first, compute the low-rank factorization penalty gradient
-        egrad = - self.Xin.dot(X) + np.dot(X,np.dot(X.T,X))
+        egrad = -self.Xin.dot(X) + np.dot(X, np.dot(X.T, X))
 
         # then add gradients of regularizers
         for i in range(1,len(self.dimGroup)+1):
             idx = np.arange(self.ind[i-1], self.ind[i], dtype=int)
             Xi = X[idx,:]
-            egrad[idx,:] = egrad[idx,:] - self.lam * (Xi - np.dot(Xi,np.dot(Xi.T,Xi)))
+            egrad[idx,:] = egrad[idx,:] - self.lam * (Xi - np.dot(Xi, np.dot(Xi.T, Xi)))
 
         return egrad

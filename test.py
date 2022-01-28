@@ -13,19 +13,19 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--dataset", nargs="?", default="Willow",
+    parser.add_argument("--dataset", default="Willow",
             help="Dataset option: either 'Willow' or 'synthetic' are supported")
     
-    parser.add_argument("--solver", nargs="?", default="cgd",
+    parser.add_argument("--solver", default="cg",
             help="Solver option: either 'cgd' for conjugate gradient or 'gd' for gradient descent")
     
-    parser.add_argument("--i", nargs="?", default=500, type=int,
+    parser.add_argument("--i", default=500, type=int,
             help="Maximum number of iterations, default to 500")
     
-    parser.add_argument("--lr", nargs="?", default=0.05, type=float,
+    parser.add_argument("--lr", default=0.05, type=float,
             help="Learning rate for gradient descent, default to 0.05")
     
-    parser.add_argument("--tol", nargs="?", default=1e-3, type=float,
+    parser.add_argument("--tol", default=1e-3, type=float,
             help="Convergence parameter, default to 1e-3.")
     
     parser.add_argument("--n", type=int,
@@ -39,7 +39,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     
-    # dataset definition
     if args.dataset == "Willow":
         dataset = WillowDataSet()
     elif args.dataset == "synthetic":
@@ -53,8 +52,7 @@ if __name__ == '__main__':
     else:
         raise ValueError(f'Unknown dataset option.')
 
-    # pick a solver
-    if args.solver == "cgd":
+    if args.solver == "cg":
         solver = ConjugateGradient(tol=args.tol, max_iter=args.i)
     elif args.solver == "gd":
         solver = GradientDescent(tol=args.tol, learning_rate=args.lr, max_iter=args.i)

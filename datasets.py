@@ -50,12 +50,12 @@ class SyntheticDataSet():
 
 class WillowDataSet():
 
-    # class to implement data loading for WILLOW object class datasets
+    "Class to implement data loading for WILLOW object class datasets."
     
-    def __init__(self, name = 'Motorbikes', nImg = 40, K=10):
+    def __init__(self, filename='data/WillowMotorbikes.mat', nImg=40, K=10):
 
         # name of files where data are stored
-        self.filename = 'data/Willow' + name + '.mat'
+        self.filename = filename
 
         # number of images
         self.nImg = nImg

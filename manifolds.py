@@ -1,19 +1,20 @@
 import numpy as np
 from numpy.linalg import norm
 
-eps = 1e-10
-
 class MultinomialManifold():
 
-    # class that implements all the ingeredients for
-    # optimization on the manifold of NxK stochastic matrices
-    # based on the Riemannian manifold structure when endowed with
-    # the Fisher information metric
-    def __init__(self,N,K):
+    """Class that implements all ingredients of the multinomial manifold.
+    
+    The multinomial manifold is the  the manifold of NxK stochastic matrices based 
+    on the Riemannian manifold structure when endowed with the Fisher information metric.
+    """
+
+    def __init__(self, N=None, K=None, eps=1e-10):
         
         # embedding space NxK
         self.N = N
         self.K = K
+        self.eps = eps
 
     def random(self):
 
@@ -24,7 +25,7 @@ class MultinomialManifold():
     def metric(self, X, U, V):
 
         # Riemannian metric <U,V>_X  
-        X = np.maximum(eps, X)
+        X = np.maximum(self.eps, X)
         return np.sum((U*V)/X)
 
     def norm(self, X, U):
@@ -35,12 +36,12 @@ class MultinomialManifold():
     def checkTangent(self, X, U):
 
         # check if U is a tanget vector at X
-        return  norm(U-self.projection(X,U), 'fro') < eps
+        return  norm(U-self.projection(X,U), 'fro') < self.eps
         
     def projection(self, X, U):
 
         # project a vector U to the tangent space at X
-        return U-U.sum(axis = 1, keepdims = True)*X
+        return U-U.sum(axis=1, keepdims=True)*X
     
     def randomTangent(self, X):
 
@@ -58,15 +59,15 @@ class MultinomialManifold():
     def exp_normalize(self, X):
 
         # softmax function
-        Y = np.exp(X - np.amax(X, axis=1,keepdims=True) )
-        return Y / Y.sum(axis=1, keepdims = True)
+        Y = np.exp(X - np.amax(X, axis=1, keepdims=True) )
+        return Y / Y.sum(axis=1, keepdims=True)
         
     def retraction(self, X, U):
 
         # compute the retraction by computing a softmax function
-        Z = np.log(np.maximum(X,eps)) +  U/X
+        Z = np.log(np.maximum(X, self.eps)) +  U/X
         Y = self.exp_normalize(Z)
-        return np.maximum(eps, Y)
+        return np.maximum(self.eps, Y)
 
     def transport(self, X, Y, V):
 
@@ -84,7 +85,7 @@ class MultinomialManifold():
 
         # returns Riemannian Hess f(X)[U] from Euclidean Hessian and gradient
         G = egrad(X) 
-        V = ehess(X,U)*X + 0.5*(G - np.sum(G*X,axis=1,keepdims=True))*U
+        V = ehess(X,U)*X + 0.5*(G - np.sum(G*X,axis=1, keepdims=True))*U
         return self.projection(X, V)
 
 if __name__ == '__main__':

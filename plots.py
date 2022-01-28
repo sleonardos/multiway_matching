@@ -1,14 +1,22 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 class Plots():
 
-    # class that implements plots regarding the optimization method
-    # given the info stored during optimization
-    # cache.shape = (nIter, 2)
+    """Class that implements plots regarding the optimization method 
+    given the info stored during optimization.""" 
     
-    def __init__(self, cache):
+    def __init__(self, cache=None):
+        
+        if cache is None:
+            raise ValueError('No cache found.')
+        
+        if len(cache) == 0:
+            raise ValueError('Cache is empty.')
+
+        # cache.shape  should be (nIter, 2)
+        if len(cache[0]) != 2:
+            raise ValueError('Cache provided has incorrect shape.')
 
         self.cache = cache
 
